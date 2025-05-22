@@ -1,0 +1,39 @@
+.specials {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+}
+
+#h1 {
+  width: 30%;
+  color: black;
+  font-family: markazi-text;
+  font-weight: bold;
+  font-size: clamp(24px, 2vw, 40px);
+  text-align: left;
+}
+
+#button {
+  width: 30%;
+  text-align: right;
+}
+
+#button button {
+  background-color: #f4ce14;
+  color: black;
+  width: 130px;
+  height: 35px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  font-family: arial;
+}
+
+#cardContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
