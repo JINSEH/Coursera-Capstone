@@ -1,5 +1,6 @@
 import Hero from "../components/home/Hero";
 import Specials from "../components/home/Specials";
+import Testimonials from "../components/home/Testimonials";
 import styles from "../modules/home.module.css";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div className={styles.home}>
       <Hero />
       <Specials />
+      <Testimonials />
     </div>
   );
 }
