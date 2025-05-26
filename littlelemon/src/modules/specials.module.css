@@ -2,9 +2,8 @@
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  align-items: center;
-  text-align: left;
   width: 100%;
+  align-items: center;
 }
 
 #h1 {
@@ -12,8 +11,9 @@
   color: black;
   font-family: markazi-text;
   font-weight: bold;
-  font-size: clamp(24px, 2vw, 40px);
-  text-align: left;
+  font-size: clamp(30px, 2vw, 40px);
+  display: flex;
+  flex-direction: column;
 }
 
 #button {
@@ -32,8 +32,15 @@
   font-family: arial;
 }
 
-#cardContainer {
+.cardContainer {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrows {
   width: 60%;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
 }
