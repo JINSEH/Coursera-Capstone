@@ -1,0 +1,39 @@
+.aboutSection {
+  background-color: white;
+}
+
+.textSection h1 {
+  color: #f4ce14;
+  font-size: clamp(30px, 2vw, 40px);
+  font-family: markazi-text;
+  font-weight: bold;
+}
+
+.textSection p:first-of-type {
+  font-size: clamp(14px, 2vw, 26px);
+  color: black;
+}
+
+.over {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 20%;
+  object-fit: contain;
+  width: 50%;
+}
+
+.under {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  object-fit: contain;
+  width: 50%;
+}
+
+.imageContainer {
+  position: relative;
+  width: 50%;
+  height: auto;
+}

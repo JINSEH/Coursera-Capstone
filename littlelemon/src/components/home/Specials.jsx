@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleChevronLeft,
   faCircleChevronRight,
-  faT,
   faTruck,
 } from "@fortawesome/free-solid-svg-icons";
 import greekSalad from "../../images/greeksalad.png";
@@ -30,15 +29,20 @@ export default function Specials() {
         {/* Card Container */}
         <Stack
           width="60%"
+          align={"stretch"}
           justify={{ base: "center", lg: "space-between" }}
-          alignItems={"center"}
           gap={2}
           direction={{ base: "column", lg: "row" }}
         >
           {/* First Card */}
-          <Card.Root w={"100%"} h={"100%"} border={"none"} bg={"gray.200"}>
-            <Image bg={"white"} h={"100%"} src={greekSalad} alt="Greek salad" />
-            <Card.Body gap="2">
+          <Card.Root flex={"1"} border={"none"} bg={"gray.200"}>
+            <Image
+              objectFit={"cover"}
+              bg={"white"}
+              src={greekSalad}
+              alt="Greek salad"
+            />
+            <Card.Body gap="3">
               <Flex justify={"space-between"}>
                 <Card.Title color={"black"}>Greek salad</Card.Title>
                 <Text color={"orange"}>$12.99</Text>
@@ -50,7 +54,13 @@ export default function Specials() {
               </Card.Description>
             </Card.Body>
             <Card.Footer gap="2">
-              <Button variant={"plain"} color={"black"} padding={"0"}>
+              <Button
+                display={"flex"}
+                alignContent={"center"}
+                variant={"plain"}
+                color={"black"}
+                padding={"0"}
+              >
                 Order a delivery
                 <FontAwesomeIcon icon={faTruck} />
               </Button>
@@ -58,8 +68,8 @@ export default function Specials() {
           </Card.Root>
 
           {/* Second Card */}
-          <Card.Root w={"100%"} h={"100%"} border={"none"} bg={"gray.200"}>
-            <Image bg={"white"} src={bruschetta} />
+          <Card.Root flex={"1"} border={"none"} bg={"gray.200"}>
+            <Image objectFit={"cover"} bg={"white"} src={bruschetta} />
             <Card.Body gap="3">
               <Flex justify={"space-between"}>
                 <Card.Title color={"black"}>Bruschetta</Card.Title>
@@ -70,8 +80,14 @@ export default function Specials() {
                 with garlic and seasoned with salt and olive oil.
               </Card.Description>
             </Card.Body>
-            <Card.Footer gap="3">
-              <Button variant={"plain"} color={"black"} padding={"0"}>
+            <Card.Footer gap="2">
+              <Button
+                display={"flex"}
+                alignContent={"center"}
+                variant={"plain"}
+                color={"black"}
+                padding={"0"}
+              >
                 Order a delivery
                 <FontAwesomeIcon icon={faTruck} />
               </Button>
@@ -79,8 +95,8 @@ export default function Specials() {
           </Card.Root>
 
           {/* Third Card */}
-          <Card.Root w={"100%"} h={"100%"} border={"none"} bg={"gray.200"}>
-            <Image bg={"white"} src={lemondessert} />
+          <Card.Root flex={"1"} border={"none"} bg={"gray.200"}>
+            <Image objectFit={"cover"} bg={"white"} src={lemondessert} />
             <Card.Body gap="3">
               <Flex justify={"space-between"}>
                 <Card.Title color={"black"}>Lemon Dessert</Card.Title>
@@ -93,7 +109,13 @@ export default function Specials() {
               </Card.Description>
             </Card.Body>
             <Card.Footer gap="2">
-              <Button variant={"plain"} color={"black"} padding={"0"}>
+              <Button
+                display={"flex"}
+                alignContent={"center"}
+                variant={"plain"}
+                color={"black"}
+                padding={"0"}
+              >
                 Order a delivery
                 <FontAwesomeIcon icon={faTruck} />
               </Button>
