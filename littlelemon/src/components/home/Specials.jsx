@@ -13,7 +13,7 @@ import lemondessert from "../../images/lemondessert.png";
 export default function Specials() {
   return (
     <>
-      <section className={styles.specials}>
+      <section id="menu" className={styles.specials}>
         <div id={styles.h1}>This weeks specials</div>
         <div id={styles.button}>
           <button>Online Menu</button>

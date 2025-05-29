@@ -6,7 +6,12 @@ import about2 from "../../images/about2.png";
 export default function About() {
   return (
     <>
-      <Flex className={styles.aboutSection} justify={"center"}>
+      <Flex
+        className={styles.aboutSection}
+        justify={"center"}
+        marginBottom={"20"}
+        id="about"
+      >
         <Flex w={"60%"} direction={{ base: "column", lg: "row" }}>
           <Flex
             align={{ base: "center", lg: "start" }}
@@ -38,7 +43,7 @@ export default function About() {
             direction={"column"}
             className={styles.imageContainer}
           >
-            <Box>
+            <Box className={styles.box}>
               <Image className={styles.over} src={about1} />
               <Image className={styles.under} src={about2} />
             </Box>

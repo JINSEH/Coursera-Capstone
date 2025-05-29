@@ -37,3 +37,23 @@
   width: 50%;
   height: auto;
 }
+
+@media (max-width: 1024px) {
+  .over,
+  .under {
+    width: 45%;
+    position: static;
+    background-color: black;
+  }
+
+  .imageContainer {
+    position: static;
+    width: 100%;
+  }
+
+  .box {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}

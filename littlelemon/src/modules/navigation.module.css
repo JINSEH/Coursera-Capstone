@@ -1,25 +1,21 @@
 nav {
   display: flex;
+  width: 60%;
   color: black;
   gap: 20px;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-family: karla;
+  font-weight: bold;
+  font-size: 1vw;
 }
 
 nav img {
-  width: 120px;
-  height: 30px;
+  width: 30%;
+  height: auto;
   cursor: pointer;
-}
-
-nav section {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-family: karla;
-  font-weight: bold;
-  font-size: 14px;
 }
 
 button {
