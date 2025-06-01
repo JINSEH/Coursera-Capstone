@@ -1,0 +1,42 @@
+.reservation {
+  box-shadow: 15px 15px 30px 2px rgb(0, 0, 0);
+  background-color: rgba(135, 148, 144, 0.5);
+  height: 80%;
+  width: 80%;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding-top: 30px;
+}
+
+.reserved {
+  background-color: #edefee;
+  font-family: karla;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  border-color: #495e57;
+  border-width: 2px;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 500px;
+  font-size: larger;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.reserved label {
+  color: #495e57;
+}
+
+.text {
+  color: black;
+}
+
+.labelText {
+  display: flex;
+  gap: 5px;
+}

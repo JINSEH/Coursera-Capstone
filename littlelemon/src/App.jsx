@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Booking from "./pages/Booking";
+import Reserved from "./components/reservations/Reserved";
+import ReservationProvider from "./context/ReservationContext";
 
 function App() {
   const router = createBrowserRouter(
@@ -15,12 +17,15 @@ function App() {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path="booking" element={<Booking />} />
+        <Route path="reservations" element={<Reserved />} />
       </Route>
     )
   );
   return (
     <>
-      <RouterProvider router={router} />
+      <ReservationProvider>
+        <RouterProvider router={router} />
+      </ReservationProvider>
     </>
   );
 }

@@ -9,11 +9,11 @@ export default function Navigation() {
   return (
     <Flex justify={"center"}>
       <nav>
-        <img src={logo} onClick={() => navigate("")} />
+        <img src={logo} onClick={() => navigate("/")} />
         <button onClick={() => navigate("")}>Home</button>
         <HashLink to={"/#about"}>About</HashLink>
         <HashLink to={"/#menu"}>Menu</HashLink>
-        <button>Reservations</button>
+        <HashLink to={"/reservations"}>Reservations</HashLink>
         <button>Order Online</button>
         <button>Login</button>
       </nav>
