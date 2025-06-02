@@ -6,6 +6,8 @@
   align-items: center;
   flex-direction: column;
   color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .name {
@@ -83,4 +85,9 @@
 ::placeholder {
   color: white;
   font-size: 14px;
+}
+
+.errors {
+  color: red;
+  font-family: karla;
 }

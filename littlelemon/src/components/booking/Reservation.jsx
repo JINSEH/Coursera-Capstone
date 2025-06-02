@@ -16,10 +16,14 @@ import phone from "../../images/Phone.png";
 import email from "../../images/Email.png";
 import styles from "../../modules/reservation.module.css";
 import { useFormik } from "formik";
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import calendar from "../../images/Calendar.png";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useContext } from "react";
+import { ReservationContext } from "../../context/ReservationContext.jsx";
+import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 export default function Reservation() {
   const CustomDateInput = forwardRef(({ value, onClick, className }, ref) => (
@@ -29,7 +33,8 @@ export default function Reservation() {
     </Button>
   ));
 
-  const { setReservationList } = useContext();
+  const { reservationList, setReservationList } =
+    useContext(ReservationContext);
 
   function RadioInput({ formik, name, value, label }) {
     return (
@@ -46,6 +51,29 @@ export default function Reservation() {
     );
   }
 
+  const timeOptions = ["12pm - 1pm", "1pm - 2pm", "7pm - 8pm", "8pm - 9pm"];
+
+  const navigate = useNavigate();
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+
+  const validationSchema = Yup.object().shape({
+    name: Yup.string().required("Name is required"),
+    date: Yup.date()
+      .min(
+        tomorrow,
+        "Please select a day that is minimally one day after today!"
+      )
+      .required("Date is required"),
+    time: Yup.string()
+      .oneOf(timeOptions, "Please select one of the timings given!")
+      .required("Please select a timing!"),
+    guests: Yup.string().required("Please select the number of guests"),
+  });
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -56,16 +84,24 @@ export default function Reservation() {
       occasion: "",
       request: "",
     },
-    onSubmit: (values) => {
-      console.log(JSON.stringify(values));
-      localStorage.setItem("bookingReservation", JSON.stringify(values));
+    onSubmit: (values, { resetForm }) => {
+      const newList = [...reservationList, values];
+      setReservationList(newList);
+      console.log(newList);
+      resetForm();
+      navigate("/confirmation");
     },
+    validationSchema,
   });
+  useEffect(() => {
+    localStorage.setItem("bookingReservation", JSON.stringify(reservationList));
+  }, [reservationList]);
+
   return (
     <>
       {/* Flexbox for the background and to control centering of form */}
       <Flex
-        h={"900px"}
+        paddingY={"30px"}
         bgSize="cover"
         bgPosition="bottom"
         bgImage={`url(${backgroundImg})`}
@@ -95,6 +131,9 @@ export default function Reservation() {
                 type="text"
               />
             </Flex>
+            {formik.errors.name && formik.touched.name ? (
+              <div className={styles.errors}>{formik.errors.name}</div>
+            ) : null}
             {/* End of Name */}
             {/* For date */}
             <Flex w={"60%"} justify={"space-between"}>
@@ -103,14 +142,15 @@ export default function Reservation() {
                 <DatePicker
                   className={styles.custom}
                   selected={formik.values.date}
-                  onChange={(val) =>
-                    formik.setFieldValue("date", val.toLocaleDateString())
-                  }
+                  onChange={(val) => formik.setFieldValue("date", val)}
                   customInput={<CustomDateInput />}
                   popperPlacement="bottom-start"
                 />
               </Box>
             </Flex>
+            {formik.errors.date && formik.touched.date ? (
+              <div className={styles.errors}>{formik.errors.date}</div>
+            ) : null}
             {/* End of date */}
 
             {/* Start of Time */}
@@ -126,21 +166,22 @@ export default function Reservation() {
                     </Button>
                   </Menu.Trigger>
                   <Menu.Content className={styles.menuContent}>
-                    {["12pm - 1pm", "1pm - 2pm", "7pm - 8pm", "8pm - 9pm"].map(
-                      (timing) => (
-                        <MenuItem
-                          className={styles.timeitem}
-                          key={timing}
-                          onClick={() => formik.setFieldValue("time", timing)}
-                        >
-                          {timing}
-                        </MenuItem>
-                      )
-                    )}
+                    {timeOptions.map((timing) => (
+                      <MenuItem
+                        className={styles.timeitem}
+                        key={timing}
+                        onClick={() => formik.setFieldValue("time", timing)}
+                      >
+                        {timing}
+                      </MenuItem>
+                    ))}
                   </Menu.Content>
                 </Menu.Root>
               </Box>
             </Flex>
+            {formik.errors.time && formik.touched.time ? (
+              <div className={styles.errors}>{formik.errors.time}</div>
+            ) : null}
             {/* End of Time */}
 
             {/* Start of Guests */}
@@ -169,6 +210,9 @@ export default function Reservation() {
                 </Menu.Root>
               </Box>
             </Flex>
+            {formik.errors.guests && formik.touched.guests ? (
+              <div className={styles.errors}>{formik.errors.guests}</div>
+            ) : null}
             {/* End of Guests */}
 
             {/* Start of Seating */}

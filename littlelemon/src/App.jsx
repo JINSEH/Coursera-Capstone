@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import Reserved from "./components/reservations/Reserved";
 import ReservationProvider from "./context/ReservationContext";
+import Confirmation from "./components/booking/Confirmation";
 
 function App() {
   const router = createBrowserRouter(
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="booking" element={<Booking />} />
         <Route path="reservations" element={<Reserved />} />
+        <Route path="confirmation" element={<Confirmation />} />
       </Route>
     )
   );
